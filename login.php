@@ -5,7 +5,7 @@ include './partials/template/header.php';
 <div class="d-flex">
     <section class="flex-grow-1">
         <h2>Login</h2>
-        <form class="p-4" action="" method="">
+        <form class="p-4" action="<?PHP echo $_SERVER['PHP_SELF'] ?>" method="POST">
             <div class="mb-3">
                 <label for="loginemail" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="loginemail" name="loginemail" aria-describedby="emailHelp">
@@ -20,7 +20,7 @@ include './partials/template/header.php';
     </section>
     <section class="flex-grow-1">
         <h2>Register</h2>
-        <form class="p-4" action="" method="POST">
+        <form class="p-4" action="<?PHP echo $_SERVER['PHP_SELF'] ?>" method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" name="name">
