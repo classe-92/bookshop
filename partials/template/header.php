@@ -1,3 +1,12 @@
+<?php
+$currentPage = basename($_SERVER['PHP_SELF']);
+$excludedPage = [
+    'login.php',
+    'logout.php'
+];
+$isPage = !in_array($currentPage, $excludedPage);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,28 +26,28 @@
             <div class="container">
 
                 <a class="navbar-brand">Logo</a>
+                <?php if ($isPage) { ?>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                        </ul>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                    </ul>
-
-                    <div>
-                        <a class="btn btn-warning" href="./logout.php">Logout</a>
-                    </div>
-
+                        <div>
+                            <a class="btn btn-warning" href="./logout.php">Logout</a>
+                        </div>
+                    <?php } ?>
                 </div>
 
 
